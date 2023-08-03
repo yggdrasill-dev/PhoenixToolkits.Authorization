@@ -1,0 +1,21 @@
+﻿
+# All files
+[*]
+indent_style = space
+
+# Xml files
+
+# AMNF0001: Awaitable (Asynchronous) methods should be suffixed with 'Async'
+dotnet_diagnostic.AMNF0001.severity = silent
+
+# AMNF0002: Non-awaitable (Synchronous) methods should not be suffixed with 'Async'
+dotnet_diagnostic.AMNF0002.severity = silent
+
+# CA2007: 請考慮對等候的工作呼叫 ConfigureAwait
+dotnet_diagnostic.CA2007.severity = none
+
+# CA2012: 正確使用 ValueTasks
+dotnet_diagnostic.CA2012.severity = silent
+
+[*.xml]
+indent_size = 2

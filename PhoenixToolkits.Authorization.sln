@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoenixToolkits.Authorization.Abstractions", "PhoenixToolkits.Authorization.Abstractions\PhoenixToolkits.Authorization.Abstractions.csproj", "{5FF28589-C1D1-4C00-8F4F-210786C1C4BD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoenixToolkits.Authorization.AspNetCore", "PhoenixToolkits.Authorization.AspNetCore\PhoenixToolkits.Authorization.AspNetCore.csproj", "{6875347B-AD66-437C-B166-2B2583C29153}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "方案項目", "方案項目", "{1835ECE8-ACA6-48FE-B95E-B3B3B2D5DEDC}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoenixToolkits.Authorization.Abstractions.UnitTests", "PhoenixToolkits.Authorization.Abstractions.UnitTests\PhoenixToolkits.Authorization.Abstractions.UnitTests.csproj", "{66D5BD51-F422-452E-B440-0CB5775FD3F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoenixToolkits.Authorization.AspNetCore.UnitTests", "PhoenixToolkits.Authorization.AspNetCore.UnitTests\PhoenixToolkits.Authorization.AspNetCore.UnitTests.csproj", "{5C28605B-F9AE-43CF-BC81-F764B711C576}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FF28589-C1D1-4C00-8F4F-210786C1C4BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FF28589-C1D1-4C00-8F4F-210786C1C4BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FF28589-C1D1-4C00-8F4F-210786C1C4BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FF28589-C1D1-4C00-8F4F-210786C1C4BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6875347B-AD66-437C-B166-2B2583C29153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6875347B-AD66-437C-B166-2B2583C29153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6875347B-AD66-437C-B166-2B2583C29153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6875347B-AD66-437C-B166-2B2583C29153}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D5BD51-F422-452E-B440-0CB5775FD3F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D5BD51-F422-452E-B440-0CB5775FD3F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D5BD51-F422-452E-B440-0CB5775FD3F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D5BD51-F422-452E-B440-0CB5775FD3F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C28605B-F9AE-43CF-BC81-F764B711C576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C28605B-F9AE-43CF-BC81-F764B711C576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C28605B-F9AE-43CF-BC81-F764B711C576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C28605B-F9AE-43CF-BC81-F764B711C576}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {660E04A9-AD3F-4579-9559-F42B17E158FB}
+	EndGlobalSection
+EndGlobal

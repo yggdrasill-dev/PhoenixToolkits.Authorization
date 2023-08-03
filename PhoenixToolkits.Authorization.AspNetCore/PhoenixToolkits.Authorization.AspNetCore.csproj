@@ -7,7 +7,25 @@
     <RootNamespace>Valhalla.Authorization.AspNetCore</RootNamespace>
     <SqlQueryToolsConnectionString />
     <OutputType>Library</OutputType>
+    <PackageId>PhoenixToolkits.Authorization.AspNetCore</PackageId>
+    <Product>PhoenixToolkits.Authorization.AspNetCore</Product>
+    <Authors>Phoenix</Authors>
+    <Company>Valhalla</Company>
+    <Version>0.0.1</Version>
+    <Description>以Asp.Net core的Authorization整合實作授權機制</Description>
+    <Copyright>MIT</Copyright>
+    <PackageProjectUrl>https://github.com/yggdrasill-dev/PhoenixToolkits.Authorization</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/yggdrasill-dev/PhoenixToolkits.Authorization.git</RepositoryUrl>
+    <PackageTags>Phoenix Authorization Authorize</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AsyncMethodNameFixer" Version="2.3.0" />

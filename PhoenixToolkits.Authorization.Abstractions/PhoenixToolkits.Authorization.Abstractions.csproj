@@ -6,7 +6,25 @@
     <Nullable>enable</Nullable>
     <SqlQueryToolsConnectionString />
     <RootNamespace>Valhalla.Authorization</RootNamespace>
+    <Version>0.0.1</Version>
+    <Authors>Phoenix</Authors>
+    <Company>Valhalla</Company>
+    <PackageId>PhoenixToolkits.Authorization.Abstractions</PackageId>
+    <Product>PhoenixToolkits.Authorization.Abstractions</Product>
+    <Description>授權抽象層</Description>
+    <Copyright>MIT</Copyright>
+    <PackageProjectUrl>https://github.com/yggdrasill-dev/PhoenixToolkits.Authorization</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/yggdrasill-dev/PhoenixToolkits.Authorization.git</RepositoryUrl>
+    <PackageTags>Phoenix Authorization Authorize</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AsyncMethodNameFixer" Version="2.3.0" />

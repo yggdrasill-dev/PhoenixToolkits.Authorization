@@ -12,9 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "方案項目", "方案項�
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoenixToolkits.Authorization.Abstractions.UnitTests", "PhoenixToolkits.Authorization.Abstractions.UnitTests\PhoenixToolkits.Authorization.Abstractions.UnitTests.csproj", "{66D5BD51-F422-452E-B440-0CB5775FD3F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoenixToolkits.Authorization.Abstractions.UnitTests", "PhoenixToolkits.Authorization.Abstractions.UnitTests\PhoenixToolkits.Authorization.Abstractions.UnitTests.csproj", "{66D5BD51-F422-452E-B440-0CB5775FD3F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoenixToolkits.Authorization.AspNetCore.UnitTests", "PhoenixToolkits.Authorization.AspNetCore.UnitTests\PhoenixToolkits.Authorization.AspNetCore.UnitTests.csproj", "{5C28605B-F9AE-43CF-BC81-F764B711C576}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoenixToolkits.Authorization.AspNetCore.UnitTests", "PhoenixToolkits.Authorization.AspNetCore.UnitTests\PhoenixToolkits.Authorization.AspNetCore.UnitTests.csproj", "{5C28605B-F9AE-43CF-BC81-F764B711C576}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

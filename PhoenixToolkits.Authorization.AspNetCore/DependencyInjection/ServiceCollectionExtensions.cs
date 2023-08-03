@@ -1,7 +1,11 @@
-﻿namespace Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Authorization;
+using Valhalla.Authorization.AspNetCore;
+
+namespace Microsoft.Extensions.DependencyInjection;
 
 public static class ServiceCollectionExtensions
 {
-	public static IServiceCollection AddHttpAuthorization(this IServiceCollection services)
-		=> services;
+	public static IServiceCollection AddWebApiAuthorizationMiddlewareResultHandler(this IServiceCollection services)
+		=> services
+			.AddTransient<IAuthorizationMiddlewareResultHandler, ApiAuthorizationMiddlewareResultHandler>();
 }

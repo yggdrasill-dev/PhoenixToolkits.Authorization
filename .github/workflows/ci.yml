@@ -58,4 +58,4 @@ jobs:
 
     - name: push
       run: |
-        dotnet nuget push "nuget\*.nupkg" -s "nuget.org" -k "${{ secrets.NUGETAPIKEY }}" --skip-duplicate
+        dotnet nuget push "nuget\**\*.nupkg" -s "nuget.org" -k "${{ secrets.NUGETAPIKEY }}" --skip-duplicate

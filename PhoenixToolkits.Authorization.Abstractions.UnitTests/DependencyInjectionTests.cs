@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PhoenixToolkits.Authorization.Abstractions.UnitTests.Stubs;
 using Valhalla.Authorization;
-using Xunit;
 
 namespace PhoenixToolkits.Authorization.Abstractions.UnitTests;
+
 public class DependencyInjectionTests
 {
     [Fact]
@@ -15,15 +11,16 @@ public class DependencyInjectionTests
     {
         // Arrange
         var services = new ServiceCollection()
-            .AddPhoenixAuthorizationKits()
+            .AddPhoenixAuthorizationKits("Test")
+            .RegisterAuthorizationDataStore<StubAuthorizationDataStore>()
             .Services;
 
-        var sut = services.BuildServiceProvider();
+        var sut = services.BuildServiceProvider(true);
 
         // Act
-        sut.GetRequiredService<IAuthorizationSystem>();
+        var actual = sut.GetRequiredService<IAuthorizationSystem>();
 
         // Assert
-
+        Assert.NotNull(actual);
     }
 }

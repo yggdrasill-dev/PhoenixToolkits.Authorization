@@ -22,7 +22,7 @@ public class AuthorizationSystemBuilder
 	public AuthorizationSystemBuilder RegisterAuthorizationDataStore<TAuthorizationDataStore>()
 		where TAuthorizationDataStore : class, IAuthorizationDataStore
 	{
-		Services.AddTransient<IAuthorizationDataStore, TAuthorizationDataStore>();
+		Services.AddSingleton<IAuthorizationDataStore, TAuthorizationDataStore>();
 
 		return this;
 	}

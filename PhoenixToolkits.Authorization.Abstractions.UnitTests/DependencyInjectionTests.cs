@@ -13,6 +13,7 @@ public class DependencyInjectionTests
         var services = new ServiceCollection()
             .AddPhoenixAuthorizationKits("Test")
             .RegisterAuthorizationDataStore<StubAuthorizationDataStore>()
+            .RegisterIdentityResolveProvider<StubIdentityResolveProvider>()
             .Services;
 
         var sut = services.BuildServiceProvider(true);

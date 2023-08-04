@@ -7,5 +7,6 @@ public static class ServiceCollectionExtensions
 {
 	public static IServiceCollection AddWebApiAuthorizationMiddlewareResultHandler(this IServiceCollection services)
 		=> services
-			.AddTransient<IAuthorizationMiddlewareResultHandler, ApiAuthorizationMiddlewareResultHandler>();
+			.AddTransient<IAuthorizationMiddlewareResultHandler, ApiAuthorizationMiddlewareResultHandler>()
+			.AddSingleton<MatchFunctionMiddleware>();
 }

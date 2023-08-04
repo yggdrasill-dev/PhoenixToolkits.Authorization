@@ -11,7 +11,7 @@
     <Product>PhoenixToolkits.Authorization.AspNetCore</Product>
     <Authors>Phoenix</Authors>
     <Company>Valhalla</Company>
-    <Version>0.0.3-alpha</Version>
+    <Version>0.0.4</Version>
     <Description>以Asp.Net core的Authorization整合實作授權機制</Description>
     <Copyright>MIT</Copyright>
     <PackageProjectUrl>https://github.com/yggdrasill-dev/PhoenixToolkits.Authorization</PackageProjectUrl>

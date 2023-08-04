@@ -1,14 +1,21 @@
-﻿namespace Valhalla.Authorization.AspNetCore;
+﻿using Microsoft.AspNetCore.Routing.Constraints;
+
+namespace Valhalla.Authorization.AspNetCore;
 
 public class HttpMethodFeature : IHttpFeature
 {
-	private readonly HashSet<string> m_HttpMethods;
+	private readonly HttpMethodRouteConstraint m_Constraint;
 
 	public HttpMethodFeature(params string[] httpMethods)
 	{
-		m_HttpMethods = new HashSet<string>(httpMethods, StringComparer.OrdinalIgnoreCase);
+		m_Constraint = new HttpMethodRouteConstraint(httpMethods);
 	}
 
 	public bool IsMatch(HttpContext httpContext)
-		=> m_HttpMethods.Contains(httpContext.Request.Method);
+		=> m_Constraint.Match(
+			httpContext,
+			null,
+			string.Empty,
+			new RouteValueDictionary(),
+			RouteDirection.IncomingRequest);
 }

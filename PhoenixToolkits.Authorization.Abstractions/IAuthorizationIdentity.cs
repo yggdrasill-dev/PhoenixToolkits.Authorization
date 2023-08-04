@@ -1,5 +1,5 @@
 ﻿namespace Valhalla.Authorization;
 
-public interface IIdentity
+public interface IAuthorizationIdentity
 {
 }

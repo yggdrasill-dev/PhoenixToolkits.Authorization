@@ -1,6 +1,6 @@
 ﻿namespace Valhalla.Authorization.AspNetCore;
 
-public sealed class HttpFunction : IFunction
+public sealed class HttpFunction : IAuthorizationFunction
 {
 	private readonly IReadOnlyCollection<IHttpFeature> m_Features;
 

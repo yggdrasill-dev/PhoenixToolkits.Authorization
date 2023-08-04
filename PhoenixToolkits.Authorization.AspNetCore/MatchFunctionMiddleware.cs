@@ -2,9 +2,9 @@
 
 internal class MatchFunctionMiddleware : IMiddleware
 {
-	private readonly ISystem m_System;
+	private readonly IAuthorizationSystem m_System;
 
-	public MatchFunctionMiddleware(ISystem system)
+	public MatchFunctionMiddleware(IAuthorizationSystem system)
 	{
 		m_System = system ?? throw new ArgumentNullException(nameof(system));
 	}

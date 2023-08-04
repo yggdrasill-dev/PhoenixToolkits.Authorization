@@ -1,6 +1,6 @@
 ﻿namespace Valhalla.Authorization;
 
-public interface IFunction
+public interface IAuthorizationFunction
 {
 	Guid Id { get; }
 

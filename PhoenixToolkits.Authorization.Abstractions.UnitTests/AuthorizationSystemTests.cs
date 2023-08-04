@@ -13,8 +13,8 @@ public class AuthorizationSystemTests
 
         var sut = new AuthorizationSystem("Test", fakeAuthorizationDataStore);
 
-        var function = Substitute.For<IFunction>();
-        var idResolver = Substitute.For<IIdentityResolveProvider>();
+        var function = Substitute.For<IAuthorizationFunction>();
+        var idResolver = Substitute.For<IAuthorizationIdentityResolveProvider>();
 
         // Act
         _ = await sut.HasPermissionAsync(function, idResolver);
@@ -24,7 +24,7 @@ public class AuthorizationSystemTests
             .CheckHasPermissionAsync(
                 Arg.Is(sut.Name),
                 Arg.Is(function),
-                Arg.Any<IEnumerable<IIdentity>>());
+                Arg.Any<IEnumerable<IAuthorizationIdentity>>());
     }
 
     [Fact]
@@ -35,8 +35,8 @@ public class AuthorizationSystemTests
 
         var sut = new AuthorizationSystem("Test", fakeAuthorizationDataStore);
 
-        var function = Substitute.For<IFunction>();
-        var idResolver = Substitute.For<IIdentityResolveProvider>();
+        var function = Substitute.For<IAuthorizationFunction>();
+        var idResolver = Substitute.For<IAuthorizationIdentityResolveProvider>();
 
         _ = function.AllowAnonymous.Returns(true);
 
@@ -50,7 +50,7 @@ public class AuthorizationSystemTests
             .CheckHasPermissionAsync(
                 Arg.Is(sut.Name),
                 Arg.Is(function),
-                Arg.Any<IEnumerable<IIdentity>>());
+                Arg.Any<IEnumerable<IAuthorizationIdentity>>());
     }
 
     [Fact]
@@ -77,21 +77,21 @@ public class AuthorizationSystemTests
 
         var sut = new AuthorizationSystem("Test", fakeAuthorizationDataStore);
 
-        var functionMatcher = Substitute.For<IFunctionMatcher>();
+        var functionMatcher = Substitute.For<IAuthorizationFunctionMatcher>();
 
         var systemFunctions = new[]
         {
-            Substitute.For<IFunction>(),
-            Substitute.For<IFunction>(),
-            Substitute.For<IFunction>()
+            Substitute.For<IAuthorizationFunction>(),
+            Substitute.For<IAuthorizationFunction>(),
+            Substitute.For<IAuthorizationFunction>()
         };
 
         _ = fakeAuthorizationDataStore.GetFunctionsAsync(Arg.Is(sut.Name))
             .Returns(systemFunctions.ToAsyncEnumerable());
-        _ = functionMatcher.IsMatch(Arg.Any<IFunction>())
+        _ = functionMatcher.IsMatch(Arg.Any<IAuthorizationFunction>())
             .Returns(callInfo =>
             {
-                var function = callInfo.Arg<IFunction>();
+                var function = callInfo.Arg<IAuthorizationFunction>();
 
                 return function == systemFunctions[1];
             });
@@ -103,7 +103,7 @@ public class AuthorizationSystemTests
         _ = fakeAuthorizationDataStore.Received(1)
             .GetFunctionsAsync(Arg.Is(sut.Name));
         _ = functionMatcher.Received(2)
-            .IsMatch(Arg.Any<IFunction>());
+            .IsMatch(Arg.Any<IAuthorizationFunction>());
         Assert.Equal(systemFunctions[1], actual);
     }
 }

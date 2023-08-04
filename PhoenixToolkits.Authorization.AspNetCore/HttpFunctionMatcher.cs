@@ -1,6 +1,6 @@
 ﻿namespace Valhalla.Authorization.AspNetCore;
 
-internal class HttpFunctionMatcher : IFunctionMatcher
+internal class HttpFunctionMatcher : IAuthorizationFunctionMatcher
 {
 	private readonly HttpContext m_Context;
 
@@ -9,7 +9,7 @@ internal class HttpFunctionMatcher : IFunctionMatcher
 		m_Context = context ?? throw new ArgumentNullException(nameof(context));
 	}
 
-	public bool IsMatch(IFunction function)
+	public bool IsMatch(IAuthorizationFunction function)
 		=> function is HttpFunction httpFunction
 			&& httpFunction.IsMatch(m_Context);
 }

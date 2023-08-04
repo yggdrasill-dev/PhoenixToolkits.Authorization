@@ -6,7 +6,7 @@ public static class ServiceCollectionExtensions
 {
 	public static AuthorizationSystemBuilder AddPhoenixAuthorizationKits(this IServiceCollection services)
 	{
-		services.AddSingleton<ISystem, AuthorizationSystem>();
+		services.AddSingleton<IAuthorizationSystem, AuthorizationSystem>();
 
 		return new AuthorizationSystemBuilder(services);
 	}

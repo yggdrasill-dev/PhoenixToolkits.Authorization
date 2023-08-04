@@ -1,6 +1,6 @@
 ﻿namespace Valhalla.Authorization;
 
-internal class AuthorizationSystem : ISystem
+internal class AuthorizationSystem : IAuthorizationSystem
 {
 	private readonly IAuthorizationDataStore m_AuthorizationDataStore;
 
@@ -13,8 +13,8 @@ internal class AuthorizationSystem : ISystem
 	}
 
 	public ValueTask<bool> HasPermissionAsync(
-		IFunction function,
-		IIdentityResolveProvider identityResolver,
+		IAuthorizationFunction function,
+		IAuthorizationIdentityResolveProvider identityResolver,
 		CancellationToken cancellationToken = default)
 		=> function.AllowAnonymous
 			? ValueTask.FromResult(true)
@@ -24,10 +24,10 @@ internal class AuthorizationSystem : ISystem
 			identityResolver.GetIdentitiesAsync(cancellationToken).ToEnumerable(),
 			cancellationToken);
 
-	public ValueTask<IFunction?> GetFunctionAsync(string functionName, CancellationToken cancellationToken = default)
+	public ValueTask<IAuthorizationFunction?> GetFunctionAsync(string functionName, CancellationToken cancellationToken = default)
 		=> m_AuthorizationDataStore.FindFunctionAsync(Name, functionName, cancellationToken);
 
-	public async ValueTask<IFunction?> GetFunctionAsync(IFunctionMatcher functionMatcher, CancellationToken cancellationToken = default)
+	public async ValueTask<IAuthorizationFunction?> GetFunctionAsync(IAuthorizationFunctionMatcher functionMatcher, CancellationToken cancellationToken = default)
 	{
 		await foreach (var function in m_AuthorizationDataStore.GetFunctionsAsync(Name, cancellationToken)
 			.WithCancellation(cancellationToken)

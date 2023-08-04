@@ -12,9 +12,9 @@ public class AuthorizationSystemBuilder
 	}
 
 	public AuthorizationSystemBuilder RegisterIdentityResolveProvider<TIdentityResolveProvider>()
-		where TIdentityResolveProvider : class, IIdentityResolveProvider
+		where TIdentityResolveProvider : class, IAuthorizationIdentityResolveProvider
 	{
-		Services.AddScoped<IIdentityResolveProvider, TIdentityResolveProvider>();
+		Services.AddScoped<IAuthorizationIdentityResolveProvider, TIdentityResolveProvider>();
 
 		return this;
 	}
@@ -28,9 +28,9 @@ public class AuthorizationSystemBuilder
 	}
 
 	public AuthorizationSystemBuilder RegisterFunctionFactory<TFunctionFactory, TFunctionEntity>()
-		where TFunctionFactory : class, IFunctionFactory<TFunctionEntity>
+		where TFunctionFactory : class, IAuthorizationFunctionFactory<TFunctionEntity>
 	{
-		Services.AddSingleton<IFunctionFactory<TFunctionEntity>, TFunctionFactory>();
+		Services.AddSingleton<IAuthorizationFunctionFactory<TFunctionEntity>, TFunctionFactory>();
 
 		return this;
 	}

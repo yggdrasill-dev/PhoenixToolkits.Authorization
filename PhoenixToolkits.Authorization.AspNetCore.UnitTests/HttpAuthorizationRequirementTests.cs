@@ -17,9 +17,9 @@ public class HttpAuthorizationRequirementTests
         var sut = new HttpAuthorizationRequirement();
 
         var user = new ClaimsPrincipal();
-        var function = Substitute.For<IFunction>();
-        var system = Substitute.For<ISystem>();
-        var idResolver = Substitute.For<IIdentityResolveProvider>();
+        var function = Substitute.For<IAuthorizationFunction>();
+        var system = Substitute.For<IAuthorizationSystem>();
+        var idResolver = Substitute.For<IAuthorizationIdentityResolveProvider>();
 
         var httpContext = new DefaultHttpContext();
         httpContext.Features.Set(function);
@@ -47,8 +47,8 @@ public class HttpAuthorizationRequirementTests
         var sut = new HttpAuthorizationRequirement();
 
         var user = new ClaimsPrincipal();
-        var system = Substitute.For<ISystem>();
-        var idResolver = Substitute.For<IIdentityResolveProvider>();
+        var system = Substitute.For<IAuthorizationSystem>();
+        var idResolver = Substitute.For<IAuthorizationIdentityResolveProvider>();
 
         var httpContext = new DefaultHttpContext
         {
@@ -75,9 +75,9 @@ public class HttpAuthorizationRequirementTests
         var sut = new HttpAuthorizationRequirement();
 
         var user = new ClaimsPrincipal();
-        var function = Substitute.For<IFunction>();
-        var system = Substitute.For<ISystem>();
-        var idResolver = Substitute.For<IIdentityResolveProvider>();
+        var function = Substitute.For<IAuthorizationFunction>();
+        var system = Substitute.For<IAuthorizationSystem>();
+        var idResolver = Substitute.For<IAuthorizationIdentityResolveProvider>();
 
         var httpContext = new DefaultHttpContext();
         httpContext.Features.Set(function);

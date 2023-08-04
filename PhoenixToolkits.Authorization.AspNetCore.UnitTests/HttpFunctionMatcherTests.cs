@@ -34,7 +34,7 @@ public class HttpFunctionMatcherTests
         var httpContext = new DefaultHttpContext();
         var sut = new HttpFunctionMatcher(httpContext);
 
-        var function = Substitute.For<IFunction>();
+        var function = Substitute.For<IAuthorizationFunction>();
 
         // Act
         var actual = sut.IsMatch(function);

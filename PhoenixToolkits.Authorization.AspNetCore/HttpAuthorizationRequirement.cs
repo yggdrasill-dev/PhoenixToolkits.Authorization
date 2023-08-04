@@ -8,9 +8,9 @@ internal class HttpAuthorizationRequirement : AuthorizationHandler<HttpAuthoriza
 	{
 		if (context.Resource is HttpContext httpContext)
 		{
-			var function = httpContext.Features.Get<IFunction>();
-			var system = httpContext.RequestServices.GetRequiredService<ISystem>();
-			var idResolver = httpContext.RequestServices.GetRequiredService<IIdentityResolveProvider>();
+			var function = httpContext.Features.Get<IAuthorizationFunction>();
+			var system = httpContext.RequestServices.GetRequiredService<IAuthorizationSystem>();
+			var idResolver = httpContext.RequestServices.GetRequiredService<IAuthorizationIdentityResolveProvider>();
 
 			if (function is null)
 			{

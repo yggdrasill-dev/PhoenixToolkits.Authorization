@@ -1,22 +1,19 @@
 ﻿namespace Valhalla.Authorization.AspNetCore;
 
-public sealed class HttpFunction : IAuthorizationFunction
+public sealed class HttpFunction(
+	Guid id,
+	string name,
+	bool allowAnonymous,
+	params IHttpFeature[] features)
+	: IAuthorizationFunction
 {
-	private readonly IReadOnlyCollection<IHttpFeature> m_Features;
+	private readonly IReadOnlyCollection<IHttpFeature> m_Features = Array.AsReadOnly(features);
 
-	public bool AllowAnonymous { get; }
+	public bool AllowAnonymous { get; } = allowAnonymous;
 
-	public Guid Id { get; }
+	public Guid Id { get; } = id;
 
-	public string Name { get; }
-
-	public HttpFunction(Guid id, string name, bool allowAnonymous, params IHttpFeature[] features)
-	{
-		Id = id;
-		Name = name;
-		AllowAnonymous = allowAnonymous;
-		m_Features = Array.AsReadOnly(features);
-	}
+	public string Name { get; } = name;
 
 	public bool IsMatch(HttpContext httpContext)
 	{

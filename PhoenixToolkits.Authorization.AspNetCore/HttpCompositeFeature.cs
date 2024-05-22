@@ -1,17 +1,10 @@
 ﻿namespace Valhalla.Authorization.AspNetCore;
 
-public class HttpCompositeFeature : IHttpFeature
+public class HttpCompositeFeature(params IHttpFeature[] features) : IHttpFeature
 {
-	private readonly IHttpFeature[] m_Features;
-
-	public HttpCompositeFeature(params IHttpFeature[] features)
-	{
-		m_Features = features ?? throw new ArgumentNullException(nameof(features));
-	}
-
 	public bool IsMatch(HttpContext httpContext)
 	{
-		foreach (var feature in m_Features)
+		foreach (var feature in features)
 			if (!feature.IsMatch(httpContext))
 				return false;
 

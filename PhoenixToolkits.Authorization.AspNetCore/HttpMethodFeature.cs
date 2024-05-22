@@ -2,20 +2,15 @@
 
 namespace Valhalla.Authorization.AspNetCore;
 
-public class HttpMethodFeature : IHttpFeature
+public class HttpMethodFeature(params string[] httpMethods) : IHttpFeature
 {
-	private readonly HttpMethodRouteConstraint m_Constraint;
-
-	public HttpMethodFeature(params string[] httpMethods)
-	{
-		m_Constraint = new HttpMethodRouteConstraint(httpMethods);
-	}
+	private readonly HttpMethodRouteConstraint m_Constraint = new(httpMethods);
 
 	public bool IsMatch(HttpContext httpContext)
 		=> m_Constraint.Match(
 			httpContext,
 			null,
 			string.Empty,
-			new RouteValueDictionary(),
+			[],
 			RouteDirection.IncomingRequest);
 }

@@ -1,13 +1,14 @@
-﻿namespace Valhalla.Authorization;
+﻿using System.Collections.ObjectModel;
 
-public abstract class AuthorizationDataStore<TFunctionEntity> : IAuthorizationDataStore
+namespace Valhalla.Authorization;
+
+public abstract class AuthorizationDataStore<TFunctionEntity>(
+	IEnumerable<IAuthorizationFunctionFactory<TFunctionEntity>> functionFactories)
+	: IAuthorizationDataStore
 {
-	private readonly IReadOnlyDictionary<string, IAuthorizationFunctionFactory<TFunctionEntity>> m_FunctionFactories;
-
-	public AuthorizationDataStore(IEnumerable<IAuthorizationFunctionFactory<TFunctionEntity>> functionFactories)
-	{
-		m_FunctionFactories = functionFactories.ToDictionary(fac => fac.Name);
-	}
+	private readonly ReadOnlyDictionary<string, IAuthorizationFunctionFactory<TFunctionEntity>> m_FunctionFactories = functionFactories
+		.ToDictionary(fac => fac.Name)
+		.AsReadOnly();
 
 	public abstract IAsyncEnumerable<IAuthorizationFunction> GetFunctionsAsync(string system, CancellationToken cancellationToken = default);
 

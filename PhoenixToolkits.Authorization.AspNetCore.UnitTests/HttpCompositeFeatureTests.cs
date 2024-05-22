@@ -8,7 +8,7 @@ namespace PhoenixToolkits.Authorization.AspNetCore.UnitTests;
 public class HttpCompositeFeatureTests
 {
     [Fact]
-    public void 判斷要求是否符合需要底下所有的Feature都Match才符合()
+    public void HttpCompositeFeature_判斷要求是否符合需要底下所有的Feature都Match才符合()
     {
         // Arrange
         var fakeFeature1 = Substitute.For<IHttpFeature>();
@@ -30,7 +30,7 @@ public class HttpCompositeFeatureTests
     }
 
     [Fact]
-    public void 如果建立時沒有任何子Feature則任何要求都Match()
+    public void HttpCompositeFeature_如果建立時沒有任何子Feature則任何要求都Match()
     {
         // Arrange
         var sut = new HttpCompositeFeature();
@@ -45,7 +45,7 @@ public class HttpCompositeFeatureTests
     }
 
     [Fact]
-    public void 任何一個子Feature不Match就要求不符合()
+    public void HttpCompositeFeature_任何一個子Feature不Match就要求不符合()
     {
         // Arrange
         var fakeFeature1 = Substitute.For<IHttpFeature>();

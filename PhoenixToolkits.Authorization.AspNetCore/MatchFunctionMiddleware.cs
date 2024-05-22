@@ -1,19 +1,12 @@
 ﻿namespace Valhalla.Authorization.AspNetCore;
 
-internal class MatchFunctionMiddleware : IMiddleware
+internal class MatchFunctionMiddleware(IAuthorizationSystem system) : IMiddleware
 {
-	private readonly IAuthorizationSystem m_System;
-
-	public MatchFunctionMiddleware(IAuthorizationSystem system)
-	{
-		m_System = system ?? throw new ArgumentNullException(nameof(system));
-	}
-
 	public async Task InvokeAsync(HttpContext context, RequestDelegate next)
 	{
 		var functionMatcher = new HttpFunctionMatcher(context);
 
-		var function = await m_System.GetFunctionAsync(
+		var function = await system.GetFunctionAsync(
 			functionMatcher,
 			context.RequestAborted).ConfigureAwait(false);
 

@@ -11,7 +11,7 @@ namespace PhoenixToolkits.Authorization.AspNetCore.UnitTests;
 public class HttpAuthorizationRequirementTests
 {
     [Fact]
-    public async Task 使用權限驗證物件判斷是否有權限()
+    public async Task HttpAuthorizationRequirement_使用權限驗證物件判斷是否有權限()
     {
         // Arrange
         var sut = new HttpAuthorizationRequirement();
@@ -41,7 +41,7 @@ public class HttpAuthorizationRequirementTests
     }
 
     [Fact]
-    public async Task 找不到Function的話就會判斷成沒有權限()
+    public async Task HttpAuthorizationRequirement_找不到Function的話就會判斷成沒有權限()
     {
         // Arrange
         var sut = new HttpAuthorizationRequirement();
@@ -69,7 +69,7 @@ public class HttpAuthorizationRequirementTests
     }
 
     [Fact]
-    public async Task 如果System物件的HasPermission判斷為False則沒有權限()
+    public async Task HttpAuthorizationRequirement_如果System物件的HasPermission判斷為False則沒有權限()
     {
         // Arrange
         var sut = new HttpAuthorizationRequirement();

@@ -8,7 +8,7 @@ namespace PhoenixToolkits.Authorization.AspNetCore.UnitTests;
 public class HttpFunctionMatcherTests
 {
     [Fact]
-    public void Function需要是HttpFunction並且使用IsMatch來判斷要求是否符合功能()
+    public void HttpFunctionMatcher_Function需要是HttpFunction並且使用IsMatch來判斷要求是否符合功能()
     {
         // Arrange
         var httpContext = new DefaultHttpContext();
@@ -28,7 +28,7 @@ public class HttpFunctionMatcherTests
     }
 
     [Fact]
-    public void Function不是HttpFunction則不符合()
+    public void HttpFunctionMatcher_Function不是HttpFunction則不符合()
     {
         // Arrange
         var httpContext = new DefaultHttpContext();

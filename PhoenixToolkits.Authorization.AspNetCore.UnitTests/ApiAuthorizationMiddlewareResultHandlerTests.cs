@@ -9,15 +9,15 @@ namespace PhoenixToolkits.Authorization.AspNetCore.UnitTests;
 public class ApiAuthorizationMiddlewareResultHandlerTests
 {
     [Fact]
-    public async Task Forbid時_將StatusCode設定為403()
+    public async Task ApiAuthorizationMiddlewareResultHandler_Forbid時_將StatusCode設定為403()
     {
         // Arrange
         var sut = new ApiAuthorizationMiddlewareResultHandler();
 
         var context = new DefaultHttpContext();
         var policy = new AuthorizationPolicy(
-            new[] { Substitute.For<IAuthorizationRequirement>() },
-            Array.Empty<string>());
+            [Substitute.For<IAuthorizationRequirement>()],
+            []);
         var authorizeResult = PolicyAuthorizationResult.Forbid();
 
         // Act

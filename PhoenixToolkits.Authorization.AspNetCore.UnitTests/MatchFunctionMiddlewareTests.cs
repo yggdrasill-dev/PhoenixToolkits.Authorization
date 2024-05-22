@@ -8,7 +8,7 @@ namespace PhoenixToolkits.Authorization.AspNetCore.UnitTests;
 public class MatchFunctionMiddlewareTests
 {
     [Fact]
-    public async Task 使用ISystem來判斷要求是否有符合的Function()
+    public async Task MatchFunctionMiddleware_使用ISystem來判斷要求是否有符合的Function()
     {
         // Arrange
         var fakeSystem = Substitute.For<IAuthorizationSystem>();

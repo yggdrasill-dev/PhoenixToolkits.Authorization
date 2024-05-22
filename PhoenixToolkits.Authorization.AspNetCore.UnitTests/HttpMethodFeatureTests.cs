@@ -6,7 +6,7 @@ namespace PhoenixToolkits.Authorization.AspNetCore.UnitTests;
 public class HttpMethodFeatureTests
 {
     [Fact]
-    public void Http要求的Method符合設定IsMatch回傳為True()
+    public void HttpMethodFeature_Http要求的Method符合設定IsMatch回傳為True()
     {
         // Arrange
         var sut = new HttpMethodFeature("Get");
@@ -22,7 +22,7 @@ public class HttpMethodFeatureTests
     }
 
     [Fact]
-    public void Http要求的Method不符合設定IsMatch回傳為False()
+    public void HttpMethodFeature_Http要求的Method不符合設定IsMatch回傳為False()
     {
         // Arrange
         var sut = new HttpMethodFeature("Put", "Post", "Delete");

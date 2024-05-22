@@ -1,16 +1,11 @@
 ﻿namespace Valhalla.Authorization;
 
-internal class AuthorizationSystem : IAuthorizationSystem
+internal class AuthorizationSystem(
+	string systemName,
+	IAuthorizationDataStore authorizationDataStore)
+	: IAuthorizationSystem
 {
-	private readonly IAuthorizationDataStore m_AuthorizationDataStore;
-
-	public string Name { get; }
-
-	public AuthorizationSystem(string systemName, IAuthorizationDataStore authorizationDataStore)
-	{
-		Name = systemName;
-		m_AuthorizationDataStore = authorizationDataStore ?? throw new ArgumentNullException(nameof(authorizationDataStore));
-	}
+	public string Name { get; } = systemName;
 
 	public ValueTask<bool> HasPermissionAsync(
 		IAuthorizationFunction function,
@@ -18,18 +13,18 @@ internal class AuthorizationSystem : IAuthorizationSystem
 		CancellationToken cancellationToken = default)
 		=> function.AllowAnonymous
 			? ValueTask.FromResult(true)
-			: m_AuthorizationDataStore.CheckHasPermissionAsync(
+			: authorizationDataStore.CheckHasPermissionAsync(
 			Name,
 			function,
 			identityResolver.GetIdentitiesAsync(cancellationToken).ToEnumerable(),
 			cancellationToken);
 
 	public ValueTask<IAuthorizationFunction?> GetFunctionAsync(string functionName, CancellationToken cancellationToken = default)
-		=> m_AuthorizationDataStore.FindFunctionAsync(Name, functionName, cancellationToken);
+		=> authorizationDataStore.FindFunctionAsync(Name, functionName, cancellationToken);
 
 	public async ValueTask<IAuthorizationFunction?> GetFunctionAsync(IAuthorizationFunctionMatcher functionMatcher, CancellationToken cancellationToken = default)
 	{
-		await foreach (var function in m_AuthorizationDataStore.GetFunctionsAsync(Name, cancellationToken)
+		await foreach (var function in authorizationDataStore.GetFunctionsAsync(Name, cancellationToken)
 			.WithCancellation(cancellationToken)
 			.ConfigureAwait(false))
 		{

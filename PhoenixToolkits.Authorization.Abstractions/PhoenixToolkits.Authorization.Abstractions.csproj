@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <SqlQueryToolsConnectionString />
     <RootNamespace>Valhalla.Authorization</RootNamespace>
-    <Version>0.0.4</Version>
+    <Version>0.0.5</Version>
     <Authors>Phoenix</Authors>
     <Company>Valhalla</Company>
     <PackageId>PhoenixToolkits.Authorization.Abstractions</PackageId>
@@ -29,7 +29,11 @@
 
   <ItemGroup>
     <PackageReference Include="AsyncMethodNameFixer" Version="2.3.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
+    <PackageReference Include="PhoenixToolkits.CodeAnalysis.Analyzers" Version="0.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="System.Interactive.Async" Version="6.0.1" />
   </ItemGroup>
 

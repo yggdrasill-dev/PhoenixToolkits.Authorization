@@ -6,7 +6,7 @@ namespace PhoenixToolkits.Authorization.Abstractions.UnitTests;
 public class AuthorizationSystemTests
 {
     [Fact]
-    public async Task 判斷功能能否存取_依據使用者的識別物件_呼叫IAuthorizationDataStore來判斷結果()
+    public async Task AuthorizationSystem_判斷功能能否存取_依據使用者的識別物件_呼叫IAuthorizationDataStore來判斷結果()
     {
         // Arrange
         var fakeAuthorizationDataStore = Substitute.For<IAuthorizationDataStore>();
@@ -28,7 +28,7 @@ public class AuthorizationSystemTests
     }
 
     [Fact]
-    public async Task 判斷功能能否存取_如果功能設定允許匿名_會直接回傳能存取()
+    public async Task AuthorizationSystem_判斷功能能否存取_如果功能設定允許匿名_會直接回傳能存取()
     {
         // Arrange
         var fakeAuthorizationDataStore = Substitute.For<IAuthorizationDataStore>();
@@ -54,7 +54,7 @@ public class AuthorizationSystemTests
     }
 
     [Fact]
-    public async Task 依據FunctionName取得功能()
+    public async Task AuthorizationSystem_依據FunctionName取得功能()
     {
         // Arrange
         var fakeAuthorizationDataStore = Substitute.For<IAuthorizationDataStore>();
@@ -70,7 +70,7 @@ public class AuthorizationSystemTests
     }
 
     [Fact]
-    public async Task 使用IFunctionMatcher來判定要求是否符合某功能()
+    public async Task AuthorizationSystem_使用IFunctionMatcher來判定要求是否符合某功能()
     {
         // Arrange
         var fakeAuthorizationDataStore = Substitute.For<IAuthorizationDataStore>();

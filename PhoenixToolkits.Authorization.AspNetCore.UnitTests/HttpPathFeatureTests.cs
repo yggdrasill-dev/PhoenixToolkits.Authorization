@@ -7,7 +7,7 @@ namespace PhoenixToolkits.Authorization.AspNetCore.UnitTests;
 public class HttpPathFeatureTests
 {
     [Fact]
-    public void 以AspNetCore的Route字串來判斷要求是否符合()
+    public void HttpPathFeature_以AspNetCore的Route字串來判斷要求是否符合()
     {
         // Arrange
         var sut = new HttpPathFeature("api/test/{id:int}", new ServiceCollection().BuildServiceProvider());

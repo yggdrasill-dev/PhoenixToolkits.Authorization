@@ -13,15 +13,12 @@ public class HttpPathFeature : IHttpFeature
 	private readonly Dictionary<string, CompositeRouteConstraint> m_Constraints;
 
 	public HttpPathFeature(
-#if NET7_0_OR_GREATER
-		[StringSyntax("Route")]
-#endif
-		string pathPattern,
+		[StringSyntax("Route")] string pathPattern,
 		IServiceProvider serviceProvider)
 	{
 		m_Matcher = new TemplateMatcher(
 			new RouteTemplate(RoutePatternFactory.Parse(pathPattern)),
-			new RouteValueDictionary());
+			[]);
 
 		var constraintResolver = new DefaultInlineConstraintResolver(
 			new OptionsWrapper<RouteOptions>(new RouteOptions()),

@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <SqlQueryToolsConnectionString />
     <RootNamespace>Valhalla.Authorization</RootNamespace>
-    <Version>0.0.5</Version>
+    <Version>0.0.6</Version>
     <Authors>Phoenix</Authors>
     <Company>Valhalla</Company>
     <PackageId>PhoenixToolkits.Authorization.Abstractions</PackageId>

@@ -26,12 +26,4 @@ public class AuthorizationSystemBuilder
 
 		return this;
 	}
-
-	public AuthorizationSystemBuilder RegisterFunctionFactory<TFunctionFactory, TFunctionEntity>()
-		where TFunctionFactory : class, IAuthorizationFunctionFactory<TFunctionEntity>
-	{
-		Services.AddSingleton<IAuthorizationFunctionFactory<TFunctionEntity>, TFunctionFactory>();
-
-		return this;
-	}
 }
